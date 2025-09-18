@@ -1,0 +1,353 @@
+/* Custom scrollbar styling for the advanced visualization modal */
+.visualization-modal-content {
+  max-height: calc(90vh - 130px); /* Account for header and footer height */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(203, 213, 225, 0.8) rgba(241, 245, 249, 0.5); /* Firefox */
+}
+
+/* Webkit browsers (Chrome, Safari, newer versions of Opera) */
+.visualization-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.visualization-modal-content::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+  border-radius: 8px;
+}
+
+.visualization-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.8);
+  border-radius: 8px;
+}
+
+.visualization-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.8);
+}
+
+/* Limit modal height and apply scrollbar to modal content */
+.visualization-modal {
+  max-height: 90vh !important;
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+}
+
+/* Ensure the modal doesn't exceed viewport height */
+@media (max-height: 700px) {
+  .visualization-modal-content {
+    max-height: 80vh;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .visualization-modal {
+    max-height: 95vh !important;
+    max-width: 100% !important;
+    margin: 0 8px;
+    border-radius: 8px !important;
+  }
+
+  .visualization-modal-content {
+    padding: 12px !important;
+    gap: 12px !important;
+  }
+
+  /* Make the stats row responsive */
+  .visualization-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    padding: 8px !important;
+  }
+
+  /* Stack charts in columns on mobile */
+  .visualization-chart-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Adjust chart height for better mobile viewing */
+  .chart-container {
+    height: 220px !important;
+  }
+
+  /* Prediction grid */
+  .prediction-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats grid */
+  .stats-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Chart title and content spacing */
+  .visualization-chart-title {
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Modal header adjustments */
+  .visualization-modal-header {
+    padding: 12px !important;
+  }
+
+  .visualization-modal-header .location-name {
+    font-size: 14px !important;
+  }
+
+  .visualization-modal-header .subtitle {
+    font-size: 11px !important;
+  }
+
+  /* Adjust font sizes for better readability on mobile */
+  .text-lg {
+    font-size: 0.95rem !important;
+  }
+
+  /* Reduce padding in chart containers */
+  .visualization-modal-content .bg-white.p-4 {
+    padding: 10px !important;
+  }
+
+  /* Adjust legend sizing */
+  .recharts-legend-wrapper {
+    font-size: 9px !important;
+  }
+
+  /* Make sure axis labels are readable */
+  .recharts-cartesian-axis-tick-value {
+    font-size: 9px !important;
+  }
+
+  /* Adjust the footer buttons */
+  .visualization-modal .p-4.flex.justify-end.border-t.bg-gray-50 {
+    padding: 8px 12px !important;
+  }
+
+  /* Better touch targets for buttons */
+  button {
+    padding: 8px 16px !important;
+    min-height: 40px !important;
+  }
+}
+
+/* Small phone screens */
+@media (max-width: 480px) {
+  .visualization-modal {
+    margin: 0 4px;
+  }
+
+  .visualization-modal-content {
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+
+  .chart-container {
+    height: 180px !important;
+  }
+
+  /* Make risk assessment chart specifically shorter */
+  .risk-assessment-chart {
+    height: 150px !important;
+    margin-bottom: 5px !important;
+  }
+
+  /* Adjust the padding around the chart */
+  .risk-assessment-chart + div {
+    padding-top: 0 !important;
+  }
+
+  .visualization-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Better spacing for insights panel on small screens */
+  .bg-blue-50.p-4.rounded-lg.border.border-blue-200 {
+    padding: 10px !important;
+  }
+
+  .bg-blue-50.p-4.rounded-lg.border.border-blue-200 h3 {
+    font-size: 11px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .bg-blue-50.p-4.rounded-lg.border.border-blue-200 .text-sm {
+    font-size: 10px !important;
+  }
+
+  /* Ensure close button is easy to tap */
+  .close-button {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
+
+  /* Optimize chart tooltips for touch */
+  .custom-tooltip {
+    padding: 12px !important;
+    min-width: 180px !important;
+  }
+
+  .custom-tooltip-item {
+    padding: 4px 0 !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  /* Larger touch targets */
+  .recharts-layer.recharts-scatter-symbol {
+    transform: scale(1.5);
+  }
+
+  /* Make dots larger and more tappable */
+  .recharts-dot {
+    r: 5 !important;
+    stroke-width: 2 !important;
+  }
+
+  /* Ensure tooltips appear properly on touch */
+  .recharts-tooltip-wrapper {
+    pointer-events: none !important;
+  }
+
+  /* Risk assessment specific mobile optimizations */
+  .risk-assessment-chart .recharts-polar-grid-angle line,
+  .risk-assessment-chart .recharts-polar-grid-concentric path {
+    stroke-width: 0.8 !important;
+    opacity: 0.7 !important;
+  }
+
+  .risk-assessment-chart .recharts-polar-angle-axis-tick-value {
+    font-size: 8px !important;
+  }
+
+  .risk-assessment-chart .recharts-polar-radius-axis-tick-value {
+    font-size: 7px !important;
+  }
+
+  /* Center radar chart on mobile */
+  .risk-assessment-chart .recharts-wrapper {
+    margin: 0 auto !important;
+  }
+
+  /* Make radar fill area smaller and more compact */
+  .risk-assessment-chart .recharts-radar {
+    opacity: 0.85 !important;
+  }
+}
+
+/* Enhanced styling for Recharts tooltip */
+.visualization-modal-content
+  .recharts-tooltip-wrapper
+  .recharts-default-tooltip {
+  border: none !important;
+  border-radius: 8px !important;
+  background-color: rgba(32, 33, 36, 0.9) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  padding: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Improve tooltip label styling */
+.visualization-modal-content .recharts-tooltip-wrapper .recharts-tooltip-label {
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+  color: #ffffff !important;
+}
+
+/* Improve tooltip item styling */
+.visualization-modal-content .recharts-tooltip-wrapper .recharts-tooltip-item {
+  padding: 2px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Improve tooltip item name styling */
+.visualization-modal-content
+  .recharts-tooltip-wrapper
+  .recharts-tooltip-item-name {
+  font-weight: normal !important;
+  margin-right: 5px !important;
+  color: #e2e2e2 !important;
+}
+
+/* Improve tooltip item value styling */
+.visualization-modal-content
+  .recharts-tooltip-wrapper
+  .recharts-tooltip-item-value {
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+/* Add a subtle pointer/arrow to the tooltip */
+.visualization-modal-content
+  .recharts-tooltip-wrapper
+  .recharts-default-tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(32, 33, 36, 0.9);
+}
+
+/* Custom tooltip styling */
+.custom-tooltip {
+  background-color: rgba(32, 33, 36, 0.95);
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  min-width: 150px;
+  max-width: 300px;
+  backdrop-filter: blur(8px);
+  transition: opacity 0.2s ease;
+}
+
+.custom-tooltip-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.custom-tooltip-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.custom-tooltip-item {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.tooltip-color-key {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.tooltip-name {
+  color: #e2e2e2;
+  margin-right: 4px;
+}
+
+.tooltip-value {
+  font-weight: 500;
+  color: #ffffff;
+}

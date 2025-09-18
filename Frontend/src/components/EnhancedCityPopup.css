@@ -1,0 +1,36 @@
+/* Enhanced popup styling for better centering and mobile view */
+.enhanced-popup {
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Make all content centered and properly contained */
+.enhanced-popup > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .enhanced-popup {
+    max-width: 240px;
+    padding: 8px;
+  }
+}
+
+/* Chart text optimization */
+.enhanced-popup .doughnut-container {
+  position: relative;
+}
+
+/* Improves chart visibility on small screens */
+.enhanced-popup .doughnut-container canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}

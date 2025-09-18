@@ -1,0 +1,49 @@
+/* Styles for right sidebar with dark-themed scrollbar */
+.right-sidebar {
+  background-color: rgba(15, 23, 42, 0.04);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-sidebar-content {
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: rgba(30, 41, 59, 0.5) rgba(15, 23, 42, 0.1); /* For Firefox */
+  height: 100%;
+  padding: 1rem;
+}
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+.right-sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right-sidebar-content::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+}
+
+.right-sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 8px;
+}
+
+.right-sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 41, 59, 0.7);
+}
+
+.right-sidebar-header {
+  background-color: rgba(15, 23, 42, 0.7);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
